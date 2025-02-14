@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private GameObject panelGameOver;
-    [SerializeField] private EnemyGenerator enemyGenerator;
+    [SerializeField] private GameObject panelGameOver; //Guardamos el objeto deel panel de fin de partida.
+    [SerializeField] private EnemyGenerator enemyGenerator; //Guardamos el objeto del generador de enemigos.
     void Start()
     {
         
@@ -19,13 +19,15 @@ public class GameManager : MonoBehaviour
         
     }
 
+    //Método que se ejecutará tras morir el jugador
     public void GameOver()
     {
-        panelGameOver.SetActive(true);
-        enemyGenerator.enabled = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        panelGameOver.SetActive(true); //Se activa el panel de fin de partida.
+        enemyGenerator.enabled = false; //Se desactiva el generador de enemigos.
+        Cursor.lockState = CursorLockMode.Confined; //El cursos se desbloquea.
     }
 
+    //Método para recargar la escena. Este será ejecutado por el botón del panel de fin de partida.
     public void LoadSceneLevel()
     {
         SceneManager.LoadScene("Game");
